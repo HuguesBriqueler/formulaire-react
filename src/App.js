@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import {TextField, MenuItem} from '@mui/material';
+import {TextField, MenuItem, IconButton} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -20,7 +21,8 @@ const selectReseauBox = [
   
   
   function App() {
-  const {reseaux, setReseaux} = useState("");
+  const [reseaux, setReseaux] = useState(selectReseauBox[0].value);
+  const [pseudoReseaux, setPseudoReseaux] = useState("");
 
   return (
     <div className="App">
@@ -176,6 +178,15 @@ const selectReseauBox = [
           </MenuItem>
         ))}
       </TextField>
+
+      <TextField
+      value={pseudoReseaux}
+      onChange={event => setPseudoReseaux(event.target.value)}
+      />
+
+      <IconButton color="primary">
+        <AddIcon/>
+      </IconButton>
 
     </div>
   );
