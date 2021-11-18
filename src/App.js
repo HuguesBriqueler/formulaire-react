@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import {TextField, MenuItem, IconButton} from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
+import {TextField, MenuItem} from '@mui/material';
+import { v4 as uuidv4 } from 'uuid'
 
-
+import AddButton from './AddButton';
 
 const selectReseauBox = [
   {value: "Facebook", label: "Facebook"},
@@ -18,11 +18,24 @@ const selectReseauBox = [
   {value: "Discord", label: "Discord"},
   ]
 
+  const initialChoixReseau = { reseau: selectReseauBox[0].value, url: '', tempId: uuidv4() }
   
   
   function App() {
-  const [reseaux, setReseaux] = useState(selectReseauBox[0].value);
-  const [pseudoReseaux, setPseudoReseaux] = useState("");
+    const [reseaux, setReseaux] = useState(selectReseauBox[0].value);
+    const [pseudoReseaux, setPseudoReseaux] = useState("");
+    const [choixReseau, setChoixReseau] = useState([{...initialChoixReseau}])
+    
+    const handleButton = () => {
+      setChoixReseau([...choixReseau, {...initialChoixReseau}])
+    }
+
+    const handleChoixReseau = (event, target, currentIndex) => {
+      const tempChoixReseau = [...choixReseau]
+      tempChoixReseau[currentIndex][target] = event.target.value
+
+      setChoixReseau(tempChoixReseau)
+    }
 
   return (
     <div className="App">
@@ -166,6 +179,27 @@ const selectReseauBox = [
         <option value="">Choisir un réseau</option>
         {selectReseauBox.map(reseauBoxOption => <option value={reseauBoxOption.value}>{reseauBoxOption.label}</option>)}
       </select> */}
+{/*       {choixReseau.map((item, id)=>
+        <div key={id}>
+          <TextField
+          select
+          label="Choisir un réseau"
+          value={item.reseau}
+          onChange={event => setReseaux(event.target.value)}
+          >
+          {selectReseauBox.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+
+        <TextField
+        value={item.url}
+        onChange={event => setPseudoReseaux(event.target.value)}
+        />
+      </div>
+      )}
       <TextField
         select
         label="Choisir un réseau"
@@ -182,11 +216,30 @@ const selectReseauBox = [
       <TextField
       value={pseudoReseaux}
       onChange={event => setPseudoReseaux(event.target.value)}
-      />
+      /> */}
 
-      <IconButton color="primary">
-        <AddIcon/>
-      </IconButton>
+      {choixReseau.map(({reseau, url, tempId}, indexChoixReseau)=>
+        <div key={tempId}>
+          <TextField
+            select
+            label="Choisir un réseau"
+            value={reseau}
+            onChange={event => handleChoixReseau(event, 'reseau', indexChoixReseau)}
+            >
+            {selectReseauBox.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}""
+          </TextField>
+
+          <TextField
+            value={url}
+            onChange={event => handleChoixReseau(event, 'url', indexChoixReseau)}
+          />
+          {(choixReseau.length === indexChoixReseau+1) && <AddButton onClick={handleButton} color="primary" />}
+        </div>
+      )}
 
     </div>
   );
