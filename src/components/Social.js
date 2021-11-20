@@ -18,6 +18,10 @@ function Social({ choixReseau, handleChoixReseau, setChoixReseau }) {
             select
             label="Choisir un réseau"
             value={reseau}
+            sx={{
+              mx: 1,
+              width:150
+            }}
             onChange={(event) =>
               handleChoixReseau(event, "reseau", indexChoixReseau)
             }

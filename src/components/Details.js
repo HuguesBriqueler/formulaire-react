@@ -1,9 +1,31 @@
 import React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 function Details() {
   return (
-    <div>
-      <h2>Coordonnées</h2>
+    <Box
+      component="form"
+      sx={{
+        mx: "auto",
+        width: 400,
+        my: 2,
+        border: 1,
+        borderRadius: 1,
+        "& .MuiTextField-root": { m: 1, width: "25ch" },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <Box
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          my: 1,
+        }}
+      >
+        Coordonnées
+      </Box>
       <div className="form">
         <div class="container">
           <span>&#9993;</span>
@@ -144,7 +166,7 @@ function Details() {
           </select>
         </div>
       </div>
-    </div>
+    </Box>
   );
 }
 

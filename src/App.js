@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
+import { Container, CssBaseline } from "@mui/material";
+
 import Title from "./components/Title";
 import Media from "./components/Media";
 import Details from "./components/Details";
@@ -20,19 +22,22 @@ function App() {
 
   return (
     <div className="App">
-      <Title />
-      {/* ----------------Container 1 ----------------------- */}
-      <Media />
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Title />
+        {/* ----------------Container 1 ----------------------- */}
+        <Media />
 
-      {/* ----------------Container 2 ----------------------- */}
-      <Details />
+        {/* ----------------Container 2 ----------------------- */}
+        <Details />
 
-      {/* --------------- Container 3 ----------------------- */}
-      <Social
-        choixReseau={choixReseau}
-        handleChoixReseau={handleChoixReseau}
-        setChoixReseau={setChoixReseau}
-      />
+        {/* --------------- Container 3 ----------------------- */}
+        <Social
+          choixReseau={choixReseau}
+          handleChoixReseau={handleChoixReseau}
+          setChoixReseau={setChoixReseau}
+        />
+      </ Container>
     </div>
   );
 }
