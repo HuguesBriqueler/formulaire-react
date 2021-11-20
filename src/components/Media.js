@@ -11,8 +11,20 @@ function Media() {
   const handleLogo = () => {};
 
   return (
-    <div>
-      <h2>Medias</h2>
+    <Box
+      sx={{
+          textAlign: "center",
+        }}
+    >
+      <Box
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          my: 1,
+        }}
+      >
+        Medias
+      </Box>
       <Grid container>
         <Grid item xs={6} direction="column">
           <Box>
@@ -56,7 +68,7 @@ function Media() {
           </ButtonBase>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }
 

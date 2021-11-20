@@ -1,63 +1,63 @@
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import PhoneIcon from '@mui/icons-material/Phone';
+import WebIcon from '@mui/icons-material/Web'
 
 export const contact = [
   {
-    icon: "#9993",
+    icon: <AlternateEmailIcon />,
     type: "text",
     id: "emailBox",
     label: "e-mail"
   },
   {
-    icon: "#9993",
+    icon: <AlternateEmailIcon />,
     type: "text",
     id: "emailConfirmBox",
     label: "e-mail (visible)"
   },
   {
-    icon: "#8861",
+    icon: <LockOpenIcon />,
     type: "password",
     id: "passwordBox",
     label: "Mot de passe"
   },
   {
-    icon: "#8860",
+    icon: <LockOpenIcon />,
     type: "password",
     id: "passwordConfirmBox",
     label: "Confirmation du Mot de passe"
   },
   {
-    icon: "#9750",
+    icon: <StorefrontIcon />,
     type: "text",
     id: "commerceBox",
     label: "Nom du commerce"
   },
   {
-    icon: "#9786",
+    icon: <AddLocationAltIcon />,
     type: "text",
     id: "adresseBox",
     label: "Adresse"
   },
   {
-    icon: "#9786",
+    icon: <AddLocationAltIcon />,
     type: "text",
     id: "adresseVisibleBox",
     label: "Adresse (visible)"
   },
   {
-    icon: "#9743",
+    icon: <PhoneIcon />,
     type: "number",
     id: "telBox",
     label: "Telephone"
   },
   {
-    icon: "#10155",
+    icon: <WebIcon />,
     type: "text",
     id: "webBox",
     label: "Web site"
-  },
-  {
-    icon: "#84",
-    type: "select",
-    id: "typeBox",
-    label: "Type de commerce"
-  },
+  }
 ]

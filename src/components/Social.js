@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, MenuItem } from "@mui/material";
+import { TextField, MenuItem, Box } from "@mui/material";
 
 import AddButton from "./AddButton";
 import { selectReseauBox, initialChoixReseau } from "../data/socialNetworks";
@@ -10,8 +10,20 @@ function Social({ choixReseau, handleChoixReseau, setChoixReseau }) {
   };
 
   return (
-    <div>
-      <h2>Reseaux Sociaux</h2>
+    <Box
+      sx={{
+          textAlign: "center",
+        }}
+    >
+      <Box
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          my: 1,
+        }}
+      >
+        Reseaux sociaux
+      </Box>
       {choixReseau.map(({ reseau, url, tempId }, indexChoixReseau) => (
         <div key={tempId}>
           <TextField
@@ -45,7 +57,7 @@ function Social({ choixReseau, handleChoixReseau, setChoixReseau }) {
           )}
         </div>
       ))}
-    </div>
+    </Box>
   );
 }
 
