@@ -9,55 +9,56 @@ export const contact = [
   {
     icon: <AlternateEmailIcon />,
     type: "text",
-    id: "emailBox",
-    label: "e-mail"
+    target: "email",
+    label: "e-mail",
+    default: "gerant.proprietaire"
   },
   {
     icon: <AlternateEmailIcon />,
     type: "text",
-    id: "emailConfirmBox",
+    target: "visibleEmail",
     label: "e-mail (visible)"
   },
   {
     icon: <LockOpenIcon />,
     type: "password",
-    id: "passwordBox",
+    target: "password",
     label: "Mot de passe"
   },
   {
     icon: <LockOpenIcon />,
     type: "password",
-    id: "passwordConfirmBox",
+    target: "passwordConfirm",
     label: "Confirmation du Mot de passe"
   },
   {
     icon: <StorefrontIcon />,
     type: "text",
-    id: "commerceBox",
+    target: "name",
     label: "Nom du commerce"
   },
   {
     icon: <AddLocationAltIcon />,
     type: "text",
-    id: "adresseBox",
+    target: "adress",
     label: "Adresse"
   },
   {
     icon: <AddLocationAltIcon />,
     type: "text",
-    id: "adresseVisibleBox",
+    target: "visibleAdress",
     label: "Adresse (visible)"
   },
   {
     icon: <PhoneIcon />,
     type: "number",
-    id: "telBox",
+    target: "phone",
     label: "Telephone"
   },
   {
     icon: <WebIcon />,
     type: "text",
-    id: "webBox",
+    target: "webSite",
     label: "Web site"
   }
 ]

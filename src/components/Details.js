@@ -5,9 +5,10 @@ import TextField from "@mui/material/TextField";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { contact } from "../data/coordinate";
+import { businessInfo } from "../data/businessInfo";
 import { business } from "../data/businessType"
 
-function Details() {
+function Details({businessInfo, handleBusinessInfo}) {
   return (
     <Box
       component="form"
@@ -47,6 +48,10 @@ function Details() {
               {item.icon}
               <TextField
                 label={item.label}
+                value={businessInfo[item.target]}
+                onChange={(event) => 
+                  handleBusinessInfo(event, item.target)
+                }
                 sx={{
                   mx: 1,
                   width: 150,
@@ -64,14 +69,14 @@ function Details() {
           <TextField
               select
               label="Type de commerce"
-              value={business[0]}
+              value={businessInfo["businessType"]}
               sx={{
                 mx: 1,
                 width:150
               }}
-              // onChange={(event) =>
-              //   handleBusiness(event, "reseau", indexChoixReseau)
-              // }
+              onChange={(event) =>
+                handleBusinessInfo(event, "businessType" )
+              }
             >
               {business.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -80,13 +85,6 @@ function Details() {
               ))}
               ""
             </TextField>
-
-            {/* <TextField
-              value={url}
-              onChange={(event) =>
-                handleChoixReseau(event, "url", indexChoixReseau)
-              }
-            /> */}
         </Box>
       </Box>
     </Box>
