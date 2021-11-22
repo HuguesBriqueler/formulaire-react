@@ -1,15 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import { MenuItem } from "@mui/material";
 import TextField from "@mui/material/TextField";
-
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import StorefrontIcon from "@mui/icons-material/Storefront";
-import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
-import PhoneIcon from "@mui/icons-material/Phone";
-import WebIcon from "@mui/icons-material/Web";
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { contact } from "../data/coordinate";
+import { business } from "../data/businessType"
 
 function Details() {
   return (
@@ -59,6 +55,39 @@ function Details() {
             </Box>
           );
         })}
+        <Box sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+          <AssignmentIcon />
+          <TextField
+              select
+              label="Type de commerce"
+              value={business[0]}
+              sx={{
+                mx: 1,
+                width:150
+              }}
+              // onChange={(event) =>
+              //   handleBusiness(event, "reseau", indexChoixReseau)
+              // }
+            >
+              {business.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+              ""
+            </TextField>
+
+            {/* <TextField
+              value={url}
+              onChange={(event) =>
+                handleChoixReseau(event, "url", indexChoixReseau)
+              }
+            /> */}
+        </Box>
       </Box>
     </Box>
   );
