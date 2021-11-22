@@ -8,16 +8,36 @@ import Media from "./components/Media";
 import Details from "./components/Details";
 import Social from "./components/Social";
 import { initialChoixReseau } from "./data/socialNetworks";
+import { business } from "./data/businessType";
 
 function App() {
-  // const [reseaux, setReseaux] = useState(selectReseauBox[0].value);
-  // const [pseudoReseaux, setPseudoReseaux] = useState("");
+  // ---------- Social Networks Manager ----------
   const [choixReseau, setChoixReseau] = useState([{ ...initialChoixReseau() }]);
 
   const handleChoixReseau = (event, target, currentIndex) => {
     const tempChoixReseau = [...choixReseau];
     tempChoixReseau[currentIndex][target] = event.target.value;
     setChoixReseau(tempChoixReseau);
+  };
+  // ---------- Contact Info Manager ----------
+  const businessDetail = {
+    email: "",
+    visibleEmail: "",
+    password: "",
+    name: "",
+    adress: "",
+    visibleAdress: "",
+    phone: "",
+    webSite: "",
+    businessType: ""
+  }
+  
+  const [businessInfo, setBusinessInfo] = useState(businessDetail);
+
+  const handleBusinessInfo = (event, target) => {
+    const tempBusiness = {...businessInfo}
+    tempBusiness[target] = event.target.value
+    setBusinessInfo(tempBusiness);
   };
 
   return (
@@ -29,7 +49,10 @@ function App() {
         <Media />
 
         {/* ----------------Container 2 ----------------------- */}
-        <Details />
+        <Details
+          businessInfo={businessInfo}
+          handleBusinessInfo={handleBusinessInfo}
+        />
 
         {/* --------------- Container 3 ----------------------- */}
         <Social
@@ -37,7 +60,7 @@ function App() {
           handleChoixReseau={handleChoixReseau}
           setChoixReseau={setChoixReseau}
         />
-      </ Container>
+      </Container>
     </div>
   );
 }
